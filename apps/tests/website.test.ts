@@ -14,15 +14,10 @@ describe("Website gets created", () => {
         }
     })
     it("Website is created if url is present", async () => {
-        try {
-            const response = await axios.post(`${BASE_URL}/website`, {
-                url: "https://google.com"
-            });
-            expect(response.data.id).toBeDefined();
-            expect(response.data.id).not.toBeNull();
-        } catch (e: any) {
-            console.log("❌ EXACT PRISMA ERROR:", e.response?.data);
-            throw e;
-        }
+        const response = await axios.post(`${BASE_URL}/website`, {
+            url: "https://google.com"
+        });
+        expect(response.data.id).toBeDefined();
+        expect(response.data.id).not.toBeNull();
     });
 })
